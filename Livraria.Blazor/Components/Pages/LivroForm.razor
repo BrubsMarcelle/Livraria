@@ -33,6 +33,24 @@
             </InputSelect>
         </div>
         <div class="mb-3">
+            <label for="capa" class="form-label">Capa</label>
+            <InputText id="capa" @bind-Value="Livro.Capa" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label for="categoria" class="form-label">Categoria</label>
+            <InputSelect id="categoria" @bind-Value="Livro.Categoria" class="form-control">
+                <option value="0">
+                    Selecione a Categoria
+                </option>
+                @foreach (var categoria in Enum.GetValues(typeof(Categoria)))
+                {
+                    <option value="@categoria">
+                        @categoria.ToString()
+                    </option>
+                }
+            </InputSelect>
+        </div>
+        <div class="mb-3">
             <button class="btn btn-primary shadow-none">Enviar</button>
             <a href="/livros" class="btn btn-secondary ms-3" data-enhance-nav="false">
                 Retornar para livros
